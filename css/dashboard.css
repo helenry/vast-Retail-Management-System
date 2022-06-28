@@ -1,0 +1,84 @@
+ul li a[href="dashboard.php"] {
+  border-left: 4px solid var(--theme);
+}
+
+ul li a:not(ul li a[href="dashboard.php"]) {
+  border-left: 4px solid rgba(255, 255, 255, 0);
+}
+
+a.add {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.profit {
+  grid-area: top1;
+}
+.income {
+  grid-area: top2;
+}
+.expense {
+  grid-area: top3;
+}
+.sold {
+  grid-area: top4;
+}
+.sales {
+  grid-area: top5;
+}
+.lowstock {
+  grid-area: mid1;
+}
+.nearexpired {
+  grid-area: mid2;
+}
+.topproducts {
+  grid-area: mid3;
+}
+.cash {
+  grid-area: bot4;
+}
+
+.content {
+  box-sizing: border-box;
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 1.2em;
+  color: var(--grey);
+  margin-bottom: 20px;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "top1 top1 top2 top2 top3 top3 top4 top4 top5 top5"
+    "mid1 mid1 mid1 mid2 mid2 mid2 mid3 mid3 mid3 mid3"
+    "bot4 bot4 bot4 bot4 bot4 bot4 bot4 bot4 bot4 bot4";
+  gap: 20px;
+}
+
+.main div {
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0);
+  box-shadow: 0 0 5px 2px rgb(240, 240, 240);
+}
+
+.main div:hover {
+  border: 1px solid var(--theme);
+}
+
+.main .tp {
+  height: 170px;
+}
+
+.main .md {
+  height: 250px;
+}
+
+.main .bt {
+  height: 300px;
+}

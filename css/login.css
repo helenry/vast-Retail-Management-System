@@ -1,0 +1,99 @@
+body {
+  background-color: white;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.cont {
+  display: flex;
+  height: 600px;
+  background-color: white;
+  border-radius: 25px;
+  box-shadow: 0 0 50px 10px #eeeeee;
+  width: fit-content;
+  margin: auto;
+}
+
+.image {
+  box-sizing: border-box;
+  width: 450px;
+  padding: 80px 20px 0 50px;
+  background-color: var(--theme);
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+h1 {
+  color: white;
+  font-size: 3em;
+}
+
+h1:first-child,
+h1:nth-child(2) {
+  margin-bottom: 15px;
+}
+
+.image img {
+  height: 300px;
+  transform: scaleX(-1);
+  align-self: flex-end;
+}
+
+.login.form {
+  box-sizing: border-box;
+  padding: 50px;
+  width: 370px;
+  background-color: white;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+img.logo {
+  width: 60px;
+  margin-bottom: 50px;
+}
+
+h2 {
+  font-size: 2.8em;
+  font-weight: 600;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 10px;
+}
+
+label[for="password"] {
+  margin-top: 25px;
+}
+
+input[type="submit"] {
+  margin-top: 35px;
+}
+
+.warning {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.warning img {
+  height: 15px;
+  margin-right: 5px;
+}
+
+p {
+  color: #eb2d2d;
+  font-size: 0.85em;
+}

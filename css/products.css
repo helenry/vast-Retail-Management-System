@@ -1,0 +1,7 @@
+ul li a[href="products.php"] {
+  border-left: 4px solid var(--theme);
+}
+
+ul li a:not(ul li a[href="products.php"]) {
+  border-left: 4px solid rgba(255, 255, 255, 0);
+}
