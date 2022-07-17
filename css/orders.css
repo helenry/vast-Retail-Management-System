@@ -1,7 +1,69 @@
-ul li a[href="orders.php"] {
+ul li a[href="orders.php"]:not(ul li a[href="orders.php"].notmain) {
   border-left: 4px solid var(--theme);
 }
 
-ul li a:not(ul li a[href="orders.php"]) {
-  border-left: 4px solid rgba(255, 255, 255, 0);
+ul li a[href="orders.php"].notmain {
+  transition: 0.2s border-left;
+}
+
+ul li a[href="orders.php"].notmain:hover {
+  border-left: 4px solid var(--theme);
+}
+
+.wide .navbar a[href="orders.php"] {
+  border-radius: 0;
+  margin: 0;
+}
+
+.wide .navbar a[href="orders.php"]:hover {
+  background-color: white;
+}
+
+.wide .navbar a[href="orders.php"] .left {
+  width: 66px;
+}
+
+.wide .navbar a[href="orders.php"] p {
+  color: var(--theme);
+  margin-left: 0;
+}
+
+th:nth-child(3),
+td:nth-child(3) {
+  min-width: 150px;
+}
+
+th:nth-child(4),
+td:nth-child(4) {
+  min-width: 160px;
+}
+
+th:nth-child(5),
+td:nth-child(5) {
+  min-width: 100px;
+}
+
+th:nth-child(6),
+td:nth-child(6) {
+  min-width: 150px;
+}
+
+th:nth-child(7),
+td:nth-child(7) {
+  min-width: 200px;
+}
+
+th:nth-child(8),
+td:nth-child(8) {
+  min-width: 360px;
+}
+
+th:nth-child(9),
+td:nth-child(9) {
+  min-width: 100px;
+}
+
+th:nth-child(10),
+td:nth-child(10) {
+  min-width: 100px;
 }

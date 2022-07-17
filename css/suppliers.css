@@ -1,22 +1,74 @@
-ul li a[href="suppliers.php"] {
+ul li a[href="suppliers.php"]:not(ul li a[href="suppliers.php"].notmain) {
   border-left: 4px solid var(--theme);
 }
 
-ul li a:not(ul li a[href="suppliers.php"]) {
-  border-left: 4px solid rgba(255, 255, 255, 0);
+ul li a[href="suppliers.php"].notmain {
+  transition: 0.2s border-left;
 }
 
-th:first-child,
-td:first-child {
-  width: 30px;
+ul li a[href="suppliers.php"].notmain:hover {
+  border-left: 4px solid var(--theme);
 }
 
-th:nth-child(2),
-td:nth-child(2) {
-  width: 230px;
+.wide .navbar a[href="suppliers.php"] {
+  border-radius: 0;
+  margin: 0;
+}
+
+.wide .navbar a[href="suppliers.php"]:hover {
+  background-color: white;
+}
+
+.wide .navbar a[href="suppliers.php"] .left {
+  width: 66px;
+}
+
+.wide .navbar a[href="suppliers.php"] p {
+  color: var(--theme);
+  margin-left: 0;
 }
 
 th:nth-child(3),
 td:nth-child(3) {
-  width: 200px;
+  min-width: 30px;
+}
+
+th:nth-child(4),
+td:nth-child(4) {
+  min-width: 260px;
+}
+
+th:nth-child(5),
+td:nth-child(5) {
+  min-width: 330px;
+}
+
+th:nth-child(6),
+td:nth-child(6) {
+  min-width: 230px;
+}
+
+th:nth-child(7),
+td:nth-child(7) {
+  min-width: 300px;
+}
+
+th:nth-child(8),
+td:nth-child(8) {
+  min-width: 260px;
+}
+
+th:nth-child(9),
+td:nth-child(9) {
+  min-width: 230px;
+}
+
+th:nth-child(10),
+td:nth-child(10) {
+  min-width: 300px;
+}
+
+th:nth-child(11),
+td:nth-child(11) {
+  min-width: 100px;
 }

@@ -5,6 +5,7 @@ USE vast_retail;
 
 CREATE TABLE branch (
     Id INT NOT NULL AUTO_INCREMENT,
+	EmailManager VARCHAR(60) NOT NULL,
     PRIMARY KEY (Id)
 );
 
@@ -19,68 +20,80 @@ CREATE TABLE employee (
 	Email VARCHAR(60) NOT NULL,
 	Password TEXT NOT NULL,
     Nama TEXT NOT NULL,
-    IdCabang INT NOT NULL,
+    Jabatan TEXT NOT NULL,
+    IdCabang INT NULL,
 	PRIMARY KEY (Email)
-	-- FOREIGN KEY (IdCabang) REFERENCES branch(Id)
 );
 
 CREATE TABLE address (
-    Jenis TEXT NOT NULL, -- cabang atau supplier
+    Jenis VARCHAR(8) NOT NULL, -- cabang atau supplier
     IdToko INT NOT NULL,
     Provinsi TEXT NOT NULL,
     Kabupaten TEXT NOT NULL,
     Kecamatan TEXT NOT NULL,
-    Kelurahan TEXT NOT NULL
-	-- FOREIGN KEY (IdToko) REFERENCES branch(Id),
-	-- FOREIGN KEY (IdToko) REFERENCES supplier(Id)
+    Kelurahan TEXT NOT NULL,
+	Alamat TEXT NOT NULL,
+	KodePos INT NOT NULL,
+	PRIMARY KEY(Jenis, IdToko)
 );
 
 CREATE TABLE produk (
-	NamaProduk VARCHAR(60) NOT NULL,
+	NamaProduk TEXT NOT NULL,
     KodeProduk INT NOT NULL AUTO_INCREMENT,
     HargaBeli INT(10) NOT NULL,
     HargaJual INT(10) NOT NULL,
-	Kategori TEXT NOT NULL,
+	Kategori INT NOT NULL,
 	IdSupplier INT NOT NULL,
 	PRIMARY KEY (KodeProduk)
 );
 
 CREATE TABLE inventory (
     KodeProduk INT NOT NULL,
+    NamaProduk VARCHAR(60) NOT NULL,
     Stok INT(10) NOT NULL,
-    Expired DATE NOT NULL,
-    IdCabang INT NOT NULL
-	-- FOREIGN KEY (KodeProduk) REFERENCES produk(KodeProduk),
-	-- FOREIGN KEY (IdCabang) REFERENCES branch(Id)
+    Kategori TEXT NOT NULL,
+    HargaBeli INT(10) NOT NULL,
+    HargaJual INT(10) NOT NULL,
+    IdCabang INT NOT NULL,
+    PRIMARY KEY (KodeProduk, IdCabang)
 );
 
-CREATE TABLE penjualan (
-	NoTransaksi INT NOT NULL AUTO_INCREMENT,
-	IdCabang INT NOT NULL,
-	Total INT(10) NOT NULL,
-	PRIMARY KEY (NoTransaksi)
-);
-
-CREATE TABLE pemesanan (
-	NoTransaksi INT NOT NULL AUTO_INCREMENT,
-	EmailKaryawan VARCHAR(60) NOT NULL,
-	Total INT(10) NOT NULL,
+CREATE TABLE pemesanan ( -- tidak perlu dihapus
+	NoTransaksi VARCHAR(15) NOT NULL,
+	WaktuDibuat TIMESTAMP NOT NULL,
+	WaktuDibayar TIMESTAMP NULL,
+	WaktuDikirim TIMESTAMP NULL,
+	WaktuDiterima TIMESTAMP NULL,
+	Total BIGINT NOT NULL,
 	Status TEXT NOT NULL,
 	IdCabang INT NOT NULL,
+    EmailManagerCabang VARCHAR(60) NOT NULL,
+    KelurahanCabang TEXT NOT NULL,
+    ProvinsiCabang TEXT NOT NULL,
+    KabupatenCabang TEXT NOT NULL,
+    KecamatanCabang TEXT NOT NULL,
+    AlamatCabang TEXT NOT NULL,
+    KodePosCabang INT NOT NULL,
 	IdSupplier INT NOT NULL,
+    NamaSupplier TEXT NOT NULL,
+	EmailSupplier VARCHAR(60) NOT NULL,
+    ProvinsiSupplier TEXT NOT NULL,
+    KabupatenSupplier TEXT NOT NULL,
+    KecamatanSupplier TEXT NOT NULL,
+    KelurahanSupplier TEXT NOT NULL,
+    AlamatSupplier TEXT NOT NULL,
+    KodePosSupplier INT NOT NULL,
 	PRIMARY KEY (NoTransaksi)
-	-- FOREIGN KEY (IdCabang) REFERENCES branch(Id)
-	-- FOREIGN KEY (IdSupplier) REFERENCES supplier(Id)
 );
 
-CREATE TABLE produk_transaksi (
-	WaktuTransaksi TIMESTAMP NOT NULL,
-	JenisTransaksi TEXT NOT NULL, -- penjualan atau pemesanan
-	NoTransaksi INT NOT NULL,
+CREATE TABLE produk_transaksi ( -- tidak perlu dihapus
+	NoTransaksi VARCHAR(15) NOT NULL,
     KodeProduk INT NOT NULL,
+    NamaProduk VARCHAR(60) NOT NULL,
+    Kategori TEXT NOT NULL,
+    HargaBeli INT(10) NOT NULL,
+    HargaJual INT(10) NOT NULL,
 	Kuantitas INT(4) NOT NULL,
-	SubTotal INT(9) NOT NULL
-	-- FOREIGN KEY (NoTransaksi) REFERENCES penjualan(NoTransaksi),
-	-- FOREIGN KEY (NoTransaksi) REFERENCES pemesanan(NoTransaksi),
-	-- FOREIGN KEY (KodeProduk) REFERENCES produk(KodeProduk)
+	Subtotal BIGINT NOT NULL,
+    PRIMARY KEY(NoTransaksi)
 );

@@ -81,19 +81,3 @@ label[for="password"] {
 input[type="submit"] {
   margin-top: 35px;
 }
-
-.warning {
-  margin-top: 8px;
-  display: flex;
-  align-items: center;
-}
-
-.warning img {
-  height: 15px;
-  margin-right: 5px;
-}
-
-p {
-  color: #eb2d2d;
-  font-size: 0.85em;
-}

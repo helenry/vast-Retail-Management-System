@@ -2,6 +2,7 @@ ul li a[href="sales.php"] {
   border-left: 4px solid var(--theme);
 }
 
-ul li a:not(ul li a[href="sales.php"]) {
-  border-left: 4px solid rgba(255, 255, 255, 0);
+.add {
+  opacity: 0;
+  cursor: default;
 }
